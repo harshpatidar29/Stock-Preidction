@@ -6,8 +6,8 @@ services:
     container_name: stock-predictor-api
     ports:
       - "8000:8000"
-    environment:
-      ALPHA_VANTAGE_API_KEY: ${ALPHA_VANTAGE_API_KEY:-}
+    env_file:
+      - .env
     volumes:
       - ./app/models:/app/app/models
     restart: unless-stopped
